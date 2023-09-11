@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the mark of maths: ");
+        double m = s.nextInt();
+        System.out.println("Enter the mark of physics ");
+        double p = s.nextInt();
+        System.out.println("Enter the mark of chemistry: ");
+        double c = s.nextInt();
+        System.out.println("Enter the mark of tamil: ");
+        double t = s.nextInt();
+        System.out.println("Enter the mark of english: ");
+        double e = s.nextInt();
+        CalculateGrade g = new CalculateGrade();
+        g.calculate(m,p,c,t,e);
+        s.close();
+    }
+
+}
+
+class CalculateGrade {
+    int maths;
+    int physics;
+    int chemistry;
+    int tamil;
+    int english;
+
+    public void calculate(Double m, Double p, Double c, Double t, Double e) {
+        double percentage = (m+p+c+t+e) / 5;
+        double total = m+p+c+t+e;
+        System.out.println("Total mark:");
+        System.out.println(total);
+        System.out.println("Percentage : ");
+        System.out.println(percentage + " %");
+        System.out.println("Grade:");
+        if (percentage > 90)
+            System.out.println("Grade A.Great!keep it up!");
+        else if (percentage < 90 && percentage > 80)
+            System.out.println("Grade B. Good");
+        else if (percentage < 80 && percentage > 70)
+            System.out.println("Grade C.Average");
+        else if (percentage < 70 && percentage > 60)
+            System.out.println("Grade D.work hard");
+        else if (percentage < 60 && percentage > 50)
+            System.out.println("Grade  E.work hard");
+        else {
+            System.out.println("Fail");
+        }
+    }
+
+}
